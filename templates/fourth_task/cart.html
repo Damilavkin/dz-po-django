@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Корзина</h1>
-
-    <p>Ваша корзина пока пуста</p>
-
-    <a href="{% url 'task4:platform' %}"><button>Вернуться на главную</button></a>
+{% extends 'fourth_task/menu.html' %}
 
 
-</body>
-</html>
+{% block pagename %}Корзина{% endblock %}
+
+{% block content %}
+
+<h1>Ваша корзина пуста</h1>
+{% endblock %}
