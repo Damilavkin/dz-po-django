@@ -1,11 +1,11 @@
-from django.urls import path, include
-from . import views
 
 
-app_name = 'task3'
 
-urlpatterns = [
-    path('', views.platform, name='platform'),
-    path('games/', views.games, name='games'),
-    path('cart/', views.cart, name='cart')
-]
+
+#app_name = 'task3'
+
+#urlpatterns = [
+#    path('', views.platform, name='platform'),
+#    path('games/', views.games, name='games'),
+#    path('cart/', views.cart, name='cart')
+#]
