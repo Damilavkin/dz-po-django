@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .forms import UserRegister
 
-
 users = ['user1', 'user2', 'user3']
 
 
@@ -14,11 +13,18 @@ def sign_up_by_django(request):
             password = form.cleaned_data['password']
             repeat_password = form.cleaned_data['repeat_password']
             age = form.cleaned_data['age']
-            if password == repeat_password and age >= 18 and username not in users:
+
+            if username in users:
+                info['error'] = 'Пользователь с таким логином уже существует.'
+            elif password != repeat_password:
+                info['error'] = 'Пароли не совпадают.'
+            elif age < 18:
+                info['error'] = 'Возраст должен быть не менее 18 лет.'
+            else:
+                users.append(username)  # Добавляем нового пользователя
                 return render(request, 'fifth_task/registration_page.html',
                               {'message': f'Приветствуем, {username}!', 'form': UserRegister()})
-            else:
-                info['error'] = 'Пожалуйста, проверьте введенные данные.'
+
     else:
         form = UserRegister()
 
@@ -34,11 +40,18 @@ def sign_up_by_html(request):
             password = form.cleaned_data['password']
             repeat_password = form.cleaned_data['repeat_password']
             age = form.cleaned_data['age']
-            if password == repeat_password and age >= 18 and username not in users:
+
+            if username in users:
+                info['error'] = 'Пользователь с таким логином уже существует.'
+            elif password != repeat_password:
+                info['error'] = 'Пароли не совпадают.'
+            elif age < 18:
+                info['error'] = 'Возраст должен быть не менее 18 лет.'
+            else:
+                users.append(username)  # Добавляем нового пользователя
                 return render(request, 'fifth_task/registration_page.html',
                               {'message': f'Приветствуем, {username}!', 'form': UserRegister()})
-            else:
-                info['error'] = 'Пожалуйста, проверьте введенные данные.'
+
     else:
         form = UserRegister()
 
