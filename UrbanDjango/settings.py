@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'example1',
     'example2',
     'example3',
+    'task1',
     'task2',
     'task4',
     'task5',
